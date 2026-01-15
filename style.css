@@ -4,8 +4,11 @@ body {
   color: #e50914;
   font-family: 'Cinzel', serif;
   text-transform: uppercase;
-  overflow: hidden;
+
+  overflow-x: hidden;
+  overflow-y: auto;   /* allow vertical scroll on phones */
 }
+
 
 /* VIDEOS */
 /* ===============================
@@ -19,6 +22,8 @@ video {
   inset: 0;
   background: black;
   z-index: -5;
+  pointer-events: none;  /* allows clicking buttons above video */
+
 }
 
 
@@ -53,9 +58,11 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5;
 
-  /* ADD THIS */
+  padding: 16px;
+  box-sizing: border-box;
+
+  z-index: 5;
   visibility: hidden;
 }
 
@@ -73,7 +80,8 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  max-height: 90dvh;     /* never exceed screen */
+  overflow-y: auto; 
   animation: float 6s ease-in-out infinite;
 }
 
@@ -220,3 +228,32 @@ video:not(#intro-video-1) {
   background: #ff2a2a;
   transform: scale(1.05);
 }
+
+/* ===============================
+   MOBILE FIX FOR FINAL SCREENS
+   =============================== */
+@media (max-width: 600px) {
+
+  .big {
+    font-size: 22px;
+  }
+
+  .story {
+    font-size: 14px;
+  }
+
+  .final-logo {
+    width: 220px;
+    max-width: 90%;
+  }
+
+  .screen {
+    padding: 18px 16px;
+  }
+
+  .register-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
